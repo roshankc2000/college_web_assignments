@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#div1 {
+	padding: 0 25px 0 30px;
+	background-color: aqua;
+	min-height: 150px;
+	width: auto;
+}
+
+#p1,
+#p2 {
+	color: red;
+	font-family: verdena;
+	font-size: 14px;
+	margin: 100px 0 0 80px;
+	word-spacing: 2px;
+	text-justify: center;
+}

@@ -1,0 +1,36 @@
+<!-- Write a JavaScript program to create a function that 
+	takes two numeric arrays as argument, merge them and return the sum of even numbers. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Merge and Sum Even Numbers</title>
+</head>
+
+<body>
+	<h1>Merge and Sum Even Numbers</h1>
+	<script>
+		function mergeAndSumEven(arr1, arr2) {
+			var mergedArray = arr1.concat(arr2); // Merge the two arrays
+			var evenSum = 0; // Initialize the sum of even numbers
+
+			for (var i = 0; i < mergedArray.length; i++) {
+				if (mergedArray[i] % 2 === 0) { // Check if the number is even
+					evenSum += mergedArray[i]; // Add even number to the sum
+				}
+			}
+
+			return evenSum;
+		}
+
+		var array1 = [1, 2, 3, 4, 5];
+		var array2 = [6, 7, 8, 9, 10];
+
+		var result = mergeAndSumEven(array1, array2);
+		console.log("Sum of even numbers: " + result);
+		//Sum of even numbers: 30
+	</script>
+</body>
+
+</html>

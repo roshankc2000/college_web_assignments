@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML FORM</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<form name="signupForm" onsubmit="return validateForm()">
+
+		<label for="name">Full Name:</label>
+		<input type="text" id="name"><br><br>
+
+		<label for="email">E-mail:</label>
+		<input type="text" id="email"><br><br>
+
+		<label for="password">Password:</label>
+		<input type="password" id="password"><br><br>
+
+		<label for="confirmpass">Confirm Password:</label>
+		<input type="password" id="confirmPassword"><br><br>
+
+		<label for="age">Age :</label>
+		<input type="text" id="age"><br><br>
+
+		<input type="submit" value="Sign Up">
+
+	</form>
+
+	<script>
+		function validateForm() {
+			var name = document.getElementById('name').value;
+			var email = document.getElementById('email').value;
+			var password = document.getElementById('password').value;
+			var confirmPassword = document.getElementById('confirmPassword').value;
+			var age = parseInt(document.getElementById('age').value);
+
+			// Check if any field is empty
+			if (!name || !email || !password || !confirmPassword || isNaN(age)) {
+				alert("All fields are required");
+				return false;
+			}
+
+			// Check if email is valid
+			var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+			if (!email.match(emailRegex)) {
+				alert("Invalid email address");
+				return false;
+			}
+
+			// Check password length, starts with alphabet, ends with digit
+			var passwordRegex = /^[a-zA-Z].*[0-9]$/;
+			if (password.length < 6 || !password.match(passwordRegex)) {
+				alert("Password should be at least 6 characters long, start with an alphabet, and end with a digit");
+				return false;
+			}
+
+			// Check if password and confirm password match
+			if (password !== confirmPassword) {
+				alert("Passwords do not match");
+				return false;
+			}
+
+			// Check age range
+			if (age < 8 || age > 60) {
+				alert("Age should be between 8 and 60");
+				return false;
+			}
+
+			return true;
+		}
+	</script>
+
+</body>
+
+</html>
